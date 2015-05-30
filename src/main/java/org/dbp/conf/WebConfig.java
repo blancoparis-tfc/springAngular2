@@ -7,10 +7,12 @@ import java.util.List;
 
 import org.dbp.conf.aop.log.LogAspect;
 import org.dbp.conf.interceptor.LogInterceptor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.core.env.Environment;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
@@ -33,11 +35,11 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 @ComponentScan(
 		basePackages={
 				"org.dbp.controller"	// Es donde se ubicaran los controladores
-				//,"org.dbp.conf.aop.log" // Activar los aspecto de los logs.
 				}
 		)
-
 public class WebConfig extends WebMvcConfigurerAdapter{
+
+	@Autowired private Environment env;
 	
 	@Bean
 	public LogAspect logAspect(){
@@ -63,19 +65,23 @@ public class WebConfig extends WebMvcConfigurerAdapter{
 		super.addInterceptors(registry);
 		registry.addInterceptor(new LogInterceptor());
 	}
-
 	
-	
-	// Configuraciones relacionados con jackson
 	
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		 registry
+		String entorno=env.getActiveProfiles()[0];
+		registry
 	      .addResourceHandler("/resources/**")
 	      .addResourceLocations("/resources/")
 	      .setCachePeriod(3600)
 	      .resourceChain(true)
 	      .addResolver(new PathResourceResolver());
+		registry
+	      .addResourceHandler("/env/**")
+	      .addResourceLocations("/resources/env/"+entorno+"/")
+	      .setCachePeriod(3600)
+	      .resourceChain(true)
+	      .addResolver(new PathResourceResolver());		
 	}
 
 

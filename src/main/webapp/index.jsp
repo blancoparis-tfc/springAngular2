@@ -13,7 +13,7 @@
 
 <link href="${contexto}resources/bootstrap/css/bootstrap.min.css"	rel="stylesheet">
 <link href="${contexto}resources/bootstrap/css/bootstrap-theme.min.css"	rel="stylesheet">
-<link href="${contexto}resources/css/app.css"	rel="stylesheet">
+<link href="${contexto}env/app.css"	rel="stylesheet">
 </head>
 <body>
 	<nav class="navbar navbar-inverse navbar-fixed-top">

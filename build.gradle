@@ -32,6 +32,7 @@ dependencies {
 	compile 'org.codehaus.woodstox:woodstox-core-asl:4.4.1'
 	// Jackson integracion con el JSR-310 (Para las fechas)
 	compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.5.3'
+	compile 'org.apache.commons:commons-lang3:3.4'	
 	// Jstl
 	compile 'javax.servlet:jstl:1.2'
 	compile 'taglibs:standard:1.1.2'

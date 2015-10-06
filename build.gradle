@@ -18,6 +18,9 @@ repositories {
 
 dependencies {
 	compile ('org.springframework:spring-webmvc:4.1.6.RELEASE')
+	// Spring security 
+	compile 'org.springframework.security:spring-security-web:4.0.2.RELEASE'
+	compile 'org.springframework.security:spring-security-config:4.0.2.RELEASE'
 	// logs
 	compile 'org.slf4j:slf4j-api:1.7.10'
 	compile 'ch.qos.logback:logback-classic:1.1.2'

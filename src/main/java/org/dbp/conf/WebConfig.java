@@ -78,15 +78,30 @@ public class WebConfig extends WebMvcConfigurerAdapter{
 		registry
 	      .addResourceHandler("/resources/**")
 	      .addResourceLocations("/resources/")
+	      .addResourceLocations("/WEB-INF/cliente/resources/")
 	      .setCachePeriod(3600)
 	      .resourceChain(true)
 	      .addResolver(new PathResourceResolver());
 		registry
 	      .addResourceHandler("/env/**")
-	      .addResourceLocations("/resources/env/"+entorno+"/")
+	      .addResourceLocations("/WEB-INF/cliente/resources/env/"+entorno+"/")
 	      .setCachePeriod(3600)
 	      .resourceChain(true)
 	      .addResolver(new PathResourceResolver());		
+		registry
+	      .addResourceHandler("/node_modules/**")
+	      .addResourceLocations("/WEB-INF/cliente/node_modules/")
+	      .setCachePeriod(3600)
+	      .resourceChain(true)
+	      .addResolver(new PathResourceResolver());		
+		registry
+	      .addResourceHandler("/app/**")
+	      .addResourceLocations("/WEB-INF/cliente/app/")
+	      .setCachePeriod(3600)
+	      .resourceChain(true)
+	      .addResolver(new PathResourceResolver());		
+
+		
 	}
 
 

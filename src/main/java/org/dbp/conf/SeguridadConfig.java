@@ -33,7 +33,8 @@ public class SeguridadConfig extends WebSecurityConfigurerAdapter  {
 	public void configure(WebSecurity web) throws Exception {
     	web
     		.ignoring()
-    		.antMatchers("/resources/**");
+    		.antMatchers("/resources/**")
+    		.antMatchers("/node_modules/**");
 		super.configure(web);
 	}
 	

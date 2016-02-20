@@ -2,8 +2,7 @@
 <c:url value="/" var="contexto" />
 <c:url value="/login" var="loginUrl"/>
 <head>
-	<link href="${contexto}resources/bootstrap/css/bootstrap.min.css"	rel="stylesheet">
-	<link href="${contexto}resources/bootstrap/css/bootstrap-theme.min.css"	rel="stylesheet">
+     <link rel="stylesheet" href="${contexto}node_modules/bootstrap/dist/css/bootstrap.min.css">
 	<link href="${contexto}resources/css/login.css"	rel="stylesheet">
 </head>
 <body>
